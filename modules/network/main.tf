@@ -1,6 +1,5 @@
 data "aws_availability_zones" "available" {
   state = "available"
-
   filter {
     name   = "zone-type"
     values = ["availability-zone"]
@@ -30,7 +29,7 @@ resource "aws_security_group" "bastion" {
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
-    cidr_blocks = ["192.80.0.0/16"]
+    cidr_blocks = ["0.0.0.0/0"]
   }
 
   egress {
